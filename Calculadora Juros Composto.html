@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<script>
+		function Calc() {
+			
+			var ValorIni = form1.ValorIni.value; // Valor Inicial, variavel criada
+			var ValorMen = form1.ValorMen.value; // Valor Mensal, variavel criada
+			var TaxaJ = form1.TaxaJ.value/100; // Taxa de Juros, variavel criada
+			var Periodo = form1.Periodo.value; // Periodo, variavel criada
+
+			var P = form1.ValorIni.value;
+			var T = form1.ValorMen.value;
+			var I = form1.TaxaJ.value;
+			var N = form1.Periodo.value;
+         
+			var Ti = (N*T)+P;
+			document.getElementById('CalInvest').innerHTML = Ti;
+			var Tgj = S-Ti;
+			document.getElementById('CalGan').innerHTML = Tgj;
+			var S=P * Math.pow((1 + I), N) + T * Math.pow(((1 + I),N) - 1)/ I;
+			document.getElementById('CalTotal').innerHTML = S;
+}
+        
+	</script>
+</head>
+
+<body>
+
+<div style=" position: absolute;margin-left: 450px; margin-top: 25px; width: 400px; height: 400px; border-radius: 10px solid #788; background-color: #5526 ">
+
+	<form name = "form1" action="#" method="Post"> 
+	Valor Inicial: 
+	<input name = "ValorIni" type = "text"> <br> <br> 
+	<!-- MUDAR NOME DA VARIAVEL -->
+	Valor Mensal:
+	<input name = "ValorMen" type = "text"> <br> <br> <!-- MUDAR NOME DA VARIAVEL -->
+	Taxa de Juros:
+	<input name = "TaxaJ" type = "text" value="R$                                   0.4"> % <br> <br> <!-- MUDAR NOME DA VARIAVEL -->
+	Período em:
+	<input name = "Periodo" type = "text"> <!-- MUDAR NOME DA VARIAVEL -->
+
+	<select name="Calendario">
+    <option value="">Selecione...</option>
+    <option value="Ano">Anos</option>
+    <option value="Meses">Meses</option>
+    </select>
+	<br> <br>
+
+<!--	<input type = "submit" onclick="Calc()"> -->
+
+	<input type = "button" onclick="Calc()" value="Calcular">
+
+
+</form>
+
+    <p id="CalInvest"> Total Investido:  </p>  <br>
+	<p id="CalGan">Total Ganho em Juros: </p> <br>
+	<p id="CalTotal">Total: </p>
+
+	</div>
+
+
+</body>
+</html>
